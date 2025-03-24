@@ -25,8 +25,6 @@ tables = {
     'Fact_main':Event_data
 }
 
-# for table_name, df in tables.items():
-#     to_gbq(df, f"{dataset_id}.{table_name}", project_id=project_id, if_exists="replace")
 
 # # Upload all tables to BigQuery
 for tab_name, df_name in tables.items():

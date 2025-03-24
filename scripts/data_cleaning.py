@@ -416,10 +416,6 @@ def data_cleaning():
     olist_sellers_cleaned_dataset = l[7]
 
 
-
-
-
-    
     print(olist_customers_dataset)
     print(olist_geolocation_dataset)
     print(olist_order_payments_dataset)

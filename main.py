@@ -61,7 +61,7 @@ def run_query(query):
 
 # Sidebar for Navigation
 st.sidebar.header("📊 E-commerce Dashboard")
-page = st.sidebar.radio("Select a Page:", ["Data Cleaning","EDA","Analysis", "KPI Metrics", "Aggregate Tables"])
+page = st.sidebar.radio("Select a Page:", ["schema","Data Cleaning","EDA","Analysis", "KPI Metrics", "Aggregate Tables"])
 
 # ----------------- Data Cleaning Page -----------------
 if page == "Data Cleaning":
@@ -145,15 +145,15 @@ elif page=="EDA":
     st.sidebar.title("Dataset Selection")
     dataset_option = st.sidebar.selectbox(
         "Choose a dataset to visualize:", 
-        ["None", "Customers", "Orders", "Products", "Payments", "Reviews", "Sellers"]
+        ["None", "Customers", "Orders", "Products",  "Sellers"]
     )
 
     dataset_paths = {
         "Customers": "c:/Users/HP/Downloads/E-commerce pipeline cleaned data/olist_customers_cleaned_dataset.csv",
         "Orders": "c:/Users/HP/Downloads/E-commerce pipeline cleaned data/olist_orders_cleaned_dataset.csv",
         "Products": "c:/Users/HP/Downloads/E-commerce pipeline cleaned data/olist_products_cleaned_dataset.csv",
-        "Payments": "c:/Users/HP/Downloads/E-commerce pipeline cleaned data/olist_order_payments_cleaned_dataset.csv",
-        "Reviews": "c:/Users/HP/Downloads/E-commerce pipeline cleaned data/olist_order_reviews_cleaned_dataset.csv",
+  #      "Payments": "c:/Users/HP/Downloads/E-commerce pipeline cleaned data/olist_order_payments_cleaned_dataset.csv",
+  #      "Reviews": "c:/Users/HP/Downloads/E-commerce pipeline cleaned data/olist_order_reviews_cleaned_dataset.csv",
         "Sellers": "c:/Users/HP/Downloads/E-commerce pipeline cleaned data/olist_sellers_cleaned_dataset.csv"
     }
 
@@ -228,6 +228,23 @@ elif page=="Analysis":
         if df_daily is not None:
             st.write("### Daily Orders & Revenue")
             st.dataframe(df_daily)
+elif page=="schema":
+    st.title("Schema")
+    st.write("""
+    This schema represents the logical design of the database .  
+    It includes:
+    - **order Dimension**
+    - **product Dimension**
+    - **seller Dimension**
+    - **customer Dimension**
+    - **Ecommerce Data Fact Table**
+    
+    The schema allows us to efficiently store, retrieve, and analyze Ecommerce data across multiple dimensions.
+    """)
+
+    # Display the schema image (make sure the file path is correct)
+    schema_image_path = r"c:\Users\HP\Desktop\WhatsApp Image 2025-03-24 at 1.08.00 PM.jpeg"
+    st.image(schema_image_path, caption="Database Schema", use_container_width=True)
             
            
 
